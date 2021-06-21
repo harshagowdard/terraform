@@ -8,7 +8,7 @@ terraform {
     bucket         = "terraform-batch56hd"
     key            = "sample/terraform.tfstate"
     region         = "us-east-1"
-    dynamodb_table = "terraform"
+    #dynamodb_table = "terraform"
   }
 }
 

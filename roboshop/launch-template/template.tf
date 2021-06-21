@@ -5,7 +5,7 @@ resource "aws_launch_template" "template" {
     market_type = "spot"
   }
   instance_type = "t3.micro"
-  vpc_security_group_ids = ["sg-091145b6abd8e21f6"]
+  vpc_security_group_ids = ["sg-80710d82"]
 }
 
 output "template_id" {

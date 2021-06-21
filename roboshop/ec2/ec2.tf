@@ -17,6 +17,7 @@ resource "time_sleep" "wait" {
 }
 
 resource "aws_ec2_tag" "spot" {
+  depends_on            = [time_sleep.wait]
   count                 = length(var.COMPONENTS)
   resource_id           = element(aws_spot_instance_request.cheap_worker.*.spot_instance_id, count.index )
   key                   = "Name"
@@ -24,6 +25,7 @@ resource "aws_ec2_tag" "spot" {
 }
 
 resource "aws_route53_record" "dns" {
+  depends_on            = [time_sleep.wait]
   count                 = length(var.COMPONENTS)
   zone_id               = "Z03354251ZX30X26SE5AR"
   name                  = "${element(var.COMPONENTS, count.index)}.roboshop.internal"
